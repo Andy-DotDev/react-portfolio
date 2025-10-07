@@ -1,7 +1,5 @@
 import "./style.css"
 
-import project01 from "./../../images/projects/01.jpg"
-
 const Project = ({title, img}) => { 
     return ( 
         <li className="project">

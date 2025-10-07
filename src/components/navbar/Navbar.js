@@ -1,15 +1,24 @@
-import "./style.css"
-
 import sun from "./../../images/icons/Sun.svg";
 import moon from "./../../images/icons/Moon.svg";
 
+import { NavLink} from "react-router-dom";
+
 const Navbar = () => {
-    return (   <nav className="nav">
+
+
+  const activeLink = 'nav-list__link nav-list__link-active';
+  const normalLink = 'nav-list__link';
+
+
+
+
+    return (   
+    <nav className="nav">
         <div className="container">
           <div className="nav-row">
-            <a href="index.html" className="logo">
+            <NavLink to="/" className="logo">
               <b>Freelancer</b> portfolio
-            </a>
+            </NavLink>
 
             <button className="dark-mode-btn ">
               <img className="dark-mode-btn__icon" src={sun} alt="Light mode" />
@@ -21,23 +30,24 @@ const Navbar = () => {
             </button>
 
             <ul className="nav-list">
-              <li className="nav-list__item">
-                <a
-                  href="index.html"
-                  className="nav-list__link nav-list__link-active"
-                >
+              <li className="nav-list__item" >
+                <NavLink to= "/" className={({isActive}) => {
+                  return isActive ? activeLink : normalLink;
+                }}>
                   Projects
-                </a>
+                </NavLink>
               </li>
               <li className="nav-list__item">
-                <a href="skills.html" className="nav-list__link">
-                  Skills
-                </a>
+                <NavLink to="/skills" className={({isActive}) => {
+                  return isActive ? activeLink : normalLink;
+                }}>
+                Skills
+                </NavLink>
               </li>
               <li className="nav-list__item">
-                <a href="contacts.html" className="nav-list__link">
-                  Contacts
-                </a>
+                <NavLink to="/contacts" className={({isActive}) => {
+                  return isActive ? activeLink : normalLink;
+                }}>Contacts</NavLink>
               </li>
             </ul>
           </div>
