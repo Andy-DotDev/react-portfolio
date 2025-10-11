@@ -12,5 +12,4 @@ const Project = ({ title, img, index }) => {
     </NavLink>
   );
 };
-
 export default Project;
